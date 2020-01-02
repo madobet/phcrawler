@@ -16,6 +16,8 @@ headers = {
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36',
 }
 
+proxies = {}
+
 def ListPage(url):
   logger.info('crawling : %s' % url)
   resp = requests.get(url, headers=headers, proxies=proxies, verify=False)
@@ -127,19 +129,12 @@ def Run(types, dir=os.getcwd(), proxy=''):
   '''
 
   global prefix
-  # prefix = '/mnt/backup/Porn/PornHub/'
-
   global proxies
   # example:
-  # proxies = {}
   # proxies = {
   #     "http": "socks5://127.0.0.1:1080",
   #     "https": "socks5://127.0.0.1:1080",
   # }
-  proxies = {
-    "http": "http://127.0.0.1:1913",
-    "https": "http://127.0.0.1:1913",
-  }
 
   prefix = dir
   
@@ -148,8 +143,6 @@ def Run(types, dir=os.getcwd(), proxy=''):
   if proxy:
     proxies['http'] = proxy
     proxies['https'] = proxy
-  else:
-    proxies.clear
 
   # logger.add( "%s.log" % __file__.rstrip('.py'),
   #   format="{time:MM-DD HH:mm:ss} {level} {message}")
