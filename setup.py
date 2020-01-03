@@ -22,7 +22,7 @@ setuptools.setup(
   ],
   entry_points = {
     'console_scripts': [
-      'phcrawler = phcrawler.__console__:main',
+      'phcrawler = phcrawler.__main__:entry',
     ],
   }
 )
