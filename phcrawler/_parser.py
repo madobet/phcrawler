@@ -7,15 +7,6 @@ headers = {
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36',
 }
 
-def FilterComment(file):
-  '''把 # 注释去掉
-  '''
-  with open(file) as f:
-    for line in f:
-      line = line.partition('#')[0]
-      line = line.rstrip()
-
-
 # PH parser
 def ExeJs(js):
   flashvars = re.findall('flashvars_\d+', js)[0]
